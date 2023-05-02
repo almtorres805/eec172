@@ -17,6 +17,8 @@
 
 // Standard includes
 #include <stdio.h>
+#include <stdint.h>
+#include <inttypes.h>
 
 // Driverlib includes
 #include "hw_types.h"
@@ -69,10 +71,10 @@ extern void (* const g_pfnVectors[])(void);
 volatile unsigned long pin_intcount = 0;
 volatile unsigned long pin_intflag = 0;
 // read the countdown register and compute elapsed cycles
-int delta;
+uint64_t delta;
 
 // convert elapsed cycles to microseconds
-int delta_us;
+uint64_t delta_us;
 
 //*****************************************************************************
 //                 GLOBAL VARIABLES -- End
@@ -113,22 +115,20 @@ static void SysTickHandler(void) {
 
 static void GPIOA1IntHandler(void) {
     unsigned long ulStatus;
-    // reset the countdown register
-    SysTickReset();
-    // wait for a fixed number of cycles
-    // should be 3000 i think (see utils.c)
-    UtilsDelay(1000);
 
-    // read the countdown register and compute elapsed cycles
-    uint64_t delta = SYSTICK_RELOAD_VAL - SysTickValueGet();
-
-    // convert elapsed cycles to microseconds
-    uint64_t delta_us = TICKS_TO_US(delta);
     ulStatus = MAP_GPIOIntStatus(GPIOA1_BASE, true);
     MAP_GPIOIntClear(GPIOA1_BASE, ulStatus);		// clear interrupts on GPIOA1
 
+    // read the countdown register and compute elapsed cycles
+    delta = SYSTICK_RELOAD_VAL - SysTickValueGet();
+    // convert elapsed cycles to microseconds
+    delta_us = TICKS_TO_US(delta);
+
     pin_intcount++;
     pin_intflag=1;
+    printf("%" PRIu64 "\n", delta_us);
+    // reset the countdown register
+    SysTickReset();
 }
 
 //*****************************************************************************
@@ -170,7 +170,6 @@ static void SysTickInit(void) {
     // enable the systick module itself
     MAP_SysTickEnable();
 
-
 }
 //****************************************************************************
 //
@@ -182,19 +181,15 @@ static void SysTickInit(void) {
 //! \return None.
 //
 //****************************************************************************
-int main() {
+    int main() {
 	unsigned long ulStatus;
 
     BoardInit();
-    
     PinMuxConfig();
-    
     // Enable SysTick
     SysTickInit();
-
-    InitTerm();
-
-    ClearTerm();
+//    InitTerm();
+//    ClearTerm();
 
     //
     // Register the interrupt handlers
@@ -202,18 +197,21 @@ int main() {
     MAP_GPIOIntRegister(GPIOA1_BASE, GPIOA1IntHandler);
 
     //
-    // Configure falling edge interrupts on SW2 and SW3
+    // Configure falling edge interrupts on pin 64
     //
     MAP_GPIOIntTypeSet(GPIOA1_BASE, 0x2, GPIO_FALLING_EDGE);	// GPIO Pin
 
-    ulStatus = MAP_GPIOIntStatus (GPIOA1_BASE, false);
+    ulStatus = MAP_GPIOIntStatus(GPIOA1_BASE, false);
     MAP_GPIOIntClear(GPIOA1_BASE, ulStatus);			// clear interrupts on GPIOA1
 
     // Enable interrupt
     MAP_GPIOIntEnable(GPIOA1_BASE, 0x2);
     while (1) {
-        printf("interrupt count: %d, %d\n", pin_intcount, pin_intflag);
-
+        while (pin_intflag==0) {;}
+        if (pin_intflag) {
+            pin_intflag = 0;
+            printf("interrupt count: %d\n", pin_intcount);
+        }
     }
 
 }
