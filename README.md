@@ -76,7 +76,7 @@ serial flash instead of downloading from CCS.
 
 My Home Security Box: Utilizing the CC3200 LaunchPad and AWS to create a security system. I set up the CC3200 to connect with the AWS IoT and utilized SNS to send push notifications to an associated email. The board also utilizes the built-in accelerometer to detect whether the device has been moved or not. The user will use the IR remote controller to activate/deactivate the security system.
 
-More details regarding the implementation can be found [here]()
+More details regarding the implementation can be found [here](https://github.com/almtorres805/eec172/blob/main/Home_Security_Box/HomeSecurityBox_Report.pdf)
 
 [Link to Home Security Box Folder](https://github.com/almtorres805/eec172/tree/main/Home_Security_Box)
 ## Additional Resources
