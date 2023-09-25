@@ -52,7 +52,7 @@ Then used code from Lab 3 to compose messages with an IR remote, which was sent 
 using the HTTP POST command. I defined a rule in AWS to send the text to my email using Amazon’s 
 Simple Notification Service (SNS).
 
-I didn't include the code in this repository because the text messaging application from lab 3 was used, as well as the code to connect with AWS in the [final project]().
+I didn't include the code in this repository because the text messaging application from lab 3 was used, as well as the code to connect with AWS in the [final project](https://github.com/almtorres805/eec172/tree/main/Home_Security_Box).
 
 ## Final Project: Home Security Box
 The objective of this lab was to use the REST API from Lab 5 to connect to a web service and do something interesting and creative.
@@ -78,7 +78,7 @@ My Home Security Box: Utilizing the CC3200 LaunchPad and AWS to create a securit
 
 More details regarding the implementation can be found [here]()
 
-[Link to Home Security Box Folder]()
+[Link to Home Security Box Folder](https://github.com/almtorres805/eec172/tree/main/Home_Security_Box)
 ## Additional Resources
 
 - [TI-CC3200 Official Documentation](https://www.ti.com/product/CC3200)
