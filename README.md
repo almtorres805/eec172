@@ -26,6 +26,21 @@ and send text messages back and forth between two CC3200 LaunchPad boards over a
 
 [Link to Lab 3 Report](https://github.com/almtorres805/eec172/tree/main/lab3_Test_Messaging/Lab3Report.pdf)
 
+## Lab 4: DTMF Texting Over an Asynchronous Serial (UART) Link
+
+Increasingly embedded systems include audio input. Consider for example Amazon’s Alexa or 
+Google Home. In this lab the objective was to create a simple audio interface to our embedded systems, specifically a touch tone phone input. I designed a system to decode dual-tone multi-frequency (DTMF) audio signals coming from my phone, and used the input to compose text messages, similar to the way I used the IR Remote in 
+Lab 3. The phone produced DTMF signals and I used the same multi-tap text entry system to 
+generate text messages. I used SPI to interface to an external analog-to-digital converter (ADC) as well as the OLED. 
+The final program was the same board-to-board texting application used in Lab 3, except I used DTMF 
+audio signals instead of IR Remote signals to enter the characters.
+
+[Goertzel Algorithm used for implementing and decoding DTMF tones](https://en.wikipedia.org/wiki/Goertzel_algorithm)
+
+[Link to Lab 4 Folder](https://github.com/almtorres805/eec172/tree/main/lab4_DTMF_Text_Messaging)
+
+[Link to Lab 4 Report](https://github.com/almtorres805/eec172/blob/main/lab4_DTMF_Text_Messaging/Lab%204%20Report.pdf)
+
 ## Final Project: Home Security Box
 
 ## Additional Resources
