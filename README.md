@@ -49,6 +49,6 @@ audio signals instead of IR Remote signals to enter the characters.
 
 Feel free to explore the individual lab folders for code samples, documentation, and detailed explanations of each lab's objectives and outcomes.
 
-If you have any questions or would like to discuss anything related to this repository or the embedded systems class, please feel free to almtorres805@gmail.com
+If you have any questions or would like to discuss anything related to this repository or the embedded systems class, please feel free to contact me at: almtorres805@gmail.com
 
 Happy coding!
