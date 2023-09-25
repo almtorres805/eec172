@@ -5,7 +5,7 @@ Welcome to my repository for the Embedded Systems class! In this course, I worke
 ## Lab 2: Serial Interfacing Using SPI and I2C
 
 In this lab, I used SPI to interface the CC3200 LaunchPad to a color OLED display. I also used I2C to communicate with an on-board Bosch BMA222 acceleration sensor. The application program will detect the XY tilt of the board based on BMA222 readings and use the tilt to control an icon on the OLED display. I also used a Saleae logic probe to capture and display SPI and I2C signal waveforms
-[Link to Lab 1 Folder](Lab2/)
+[Link to Lab 2 Folder](/tree/main/Lab2_Ball_Movement_Display) [Link to Lab 2 Report] (/tree/main/Lab2_Ball_Movement_Display/lab2Report)
 
 ## Final Project: Home Security Box
 
