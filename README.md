@@ -10,6 +10,22 @@ In this lab, I used SPI to interface the CC3200 LaunchPad to a color OLED displa
 
 [Link to Lab 2 Report](https://github.com/almtorres805/eec172/blob/main/Lab2_Ball_Movement_Display/Lab2Report.pdf)
 
+## Lab 3: IR Remote Control Texting Over an Asynchronous Serial (UART) Link
+
+In this lab, I used the Saleae logic analyzer and an IR receiver module to characterize the 
+transmissions for buttons from an AT&T IR remote control for a specific TV. I was assigned a 
+unique TV code so that each person was decoding different waveforms. I then interfaced the CC3200 
+Launchpad to the IR receiver module and wrote a program that uses interrupts to monitor the signal from the IR 
+receiver module. By analyzing the series of pulses, the program was able to determine which button was 
+pressed on the IR remote control programmed for my particular TV code. I then used the IR remote
+control to compose text messages using the multi-tap text entry system (https://en.wikipedia.org/wiki/Multi-tap) 
+and send text messages back and forth between two CC3200 LaunchPad boards over an asynchronous serial 
+(UART) communication channel.
+
+[Link to Lab 3 Folder](https://github.com/almtorres805/eec172/tree/main/lab3_Test_Messaging)
+
+[Link to Lab 3 Report](https://github.com/almtorres805/eec172/tree/main/lab3_Test_Messaging/Lab3Report.pdf)
+
 ## Final Project: Home Security Box
 
 ## Additional Resources
